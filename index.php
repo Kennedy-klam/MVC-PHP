@@ -5,18 +5,17 @@
 require __DIR__.'/vendor/autoload.php';
 
 use \App\Http\Router;
-use \App\Http\Response;
-use \App\Controller\Pages\Home;
+use \App\Utils\View;
 
 define('URL', 'http://Localhost/mvc_php');
 
+View::init([
+    'URL' => URL
+]);
+
 $obRouter = new Router(URL);
 
-$obRouter->get('/', [
-    function(){
-        return new Response(200, Home::getHome());
-    }
-]);     
+include __DIR__.'/routes/pages.php';
 
 $obRouter->run()
          ->sendResponse();
