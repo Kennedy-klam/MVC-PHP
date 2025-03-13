@@ -7,7 +7,7 @@ use App\Model\Entity\Organization;
 
 class About extends Page {
 
-    public static function getHome() {
+    public static function getAbout() {
         $obOrganization = new Organization;
 
         $content = View::render('pages/about', ['name' => $obOrganization->name, 
